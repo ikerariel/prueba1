@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3a1a590a-a780-41db-960c-309fd357bde5">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nro" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT p.id_pedidocompra, p.pcompra_fecha, p.id_usuario, p.id_estado, p.observacion, dp.id_articulo,dp.cantidad, dp.precio, a.art_descripcion
+  FROM pedidoscompras p
+  inner join detpedidoscompras dp on p.id_pedidocompra = dp.id_pedidocompra
+  inner join articulos a on dp.id_articulo = a.id_articulo
+  where p.id_pedidocompra=$P{nro}]]>
+	</queryString>
+	<field name="id_pedidocompra" class="java.lang.Integer"/>
+	<field name="pcompra_fecha" class="java.lang.String"/>
+	<field name="id_usuario" class="java.lang.Integer"/>
+	<field name="id_estado" class="java.lang.Integer"/>
+	<field name="observacion" class="java.lang.String"/>
+	<field name="id_articulo" class="java.lang.Integer"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="precio" class="java.lang.Integer"/>
+	<field name="art_descripcion" class="java.lang.String"/>
+	<group name="id_pedidocompra">
+		<groupExpression><![CDATA[$F{id_pedidocompra}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="0f19d360-f8ec-4397-92d0-55b396e7a59d"/>
+				</line>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="13" height="19" forecolor="#006699" backcolor="#E6E6E6" uuid="a347653b-db4b-41bb-b6f7-b98b7d27d5d8"/>
+					<textElement>
+						<font size="10" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_pedidocompra}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="cb57c6c8-82ee-47b7-9e11-9634bd36ac5d"/>
+				<staticText>
+					<reportElement x="20" y="20" width="501" height="43" forecolor="#FFFFFF" uuid="6bede520-f7de-47a2-abe3-321a9223ffe4"/>
+					<textElement textAlignment="Center">
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[PEDIDOS COMPRAS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="21"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="d777a793-e62e-45fd-b8eb-7f50b2dc520a"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="13" y="0" width="67" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="90f07b9e-a113-41f7-9d83-fad24d0e0c63"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="80" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d3774490-2160-44a1-b82e-5e170978596d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[USUARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="159" y="0" width="59" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8d53922d-c04d-4b01-8cc1-13e08470d4c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ESTADOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="218" y="1" width="91" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="aa7534d6-737d-4426-b432-0b71dbb2ded1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBSERBACION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="309" y="0" width="67" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1b1233bf-f0de-497d-b4da-316f9050563a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ARTICULOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="441" y="0" width="54" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="939900b6-160b-47cd-a019-3e5b95539a56"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="495" y="0" width="60" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="19bbfb46-cf67-471b-8b44-47cd26ed066b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PRECIOS"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="376" y="0" width="65" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="60eceb33-c4e2-4ba9-b379-79d20f38a1a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="13" height="20" forecolor="#666666" backcolor="#E6E6E6" uuid="b634630e-da35-494b-a4a4-2d99445955ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="fbbb68d4-c6c1-420d-9e79-197a2d23a013"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="27" y="0" width="73" height="19" uuid="7df6c932-41be-4f31-bc4b-46d11dcca3a4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pcompra_fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="181" y="0" width="17" height="19" uuid="787f600a-6848-4b3b-96e6-f1ac23f02913"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_estado}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="343" y="0" width="16" height="19" uuid="d74dd9d1-595c-4c95-8d8d-aa86a3b201f1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_articulo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="396" y="2" width="33" height="18" uuid="fc6ddbb4-c42f-4dc8-ac1e-1dbea1d714b7"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="509" y="1" width="46" height="19" uuid="fbf4c207-d030-4240-92dc-1d75971140a1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="119" y="0" width="30" height="18" uuid="416d7546-68f0-4d43-a3b3-62aa2c3fe9a9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_usuario}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="240" y="0" width="69" height="19" uuid="e3c0befb-cc65-4004-9fc4-b2406400b998"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{observacion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="467" y="0" width="16" height="18" uuid="0c791576-cd69-4851-91cd-2cfcaa7027f4"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="d3f84509-a4b1-43df-a7d1-29296038336f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="364dcd70-b11c-488a-8aaf-f6d9fa10b255"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="3ef09f67-79d8-4496-8125-e1f725f25a00"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

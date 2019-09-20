@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="775a2dfd-ad61-4522-8abf-8d99533826d9">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT id_articulo, art_descripcion, preccompras, precventas, id_impuesto, 
+id_marca, codigenerico
+FROM articulos;]]>
+	</queryString>
+	<field name="id_articulo" class="java.lang.Integer"/>
+	<field name="codigenerico" class="java.lang.String"/>
+	<field name="art_descripcion" class="java.lang.String"/>
+	<field name="preccompras" class="java.lang.Integer"/>
+	<field name="precventas" class="java.lang.Integer"/>
+	<field name="id_marca" class="java.lang.Integer"/>
+	<field name="id_impuesto" class="java.lang.Integer"/>
+	<group name="id_articulo">
+		<groupExpression><![CDATA[$F{id_articulo}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<line>
+					<reportElement x="-20" y="32" width="595" height="1" forecolor="#666666" uuid="848f3346-af06-4e98-a868-4a3a3234da0d"/>
+				</line>
+				<textField>
+					<reportElement mode="Opaque" x="0" y="0" width="32" height="32" forecolor="#006699" backcolor="#E6E6E6" uuid="c8f54609-6bbc-4dca-8bec-8567808907a0"/>
+					<textElement>
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{id_articulo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="636cf1ea-e75c-4e2f-a845-c729a5531e0d"/>
+				<staticText>
+					<reportElement x="214" y="20" width="142" height="34" forecolor="#FFFFFF" uuid="b06ca1f0-ba24-4b74-868a-74132ec7495c"/>
+					<textElement>
+						<font size="24" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ARTICULOS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="a3befb22-292c-46a0-8d66-d84af45766e3"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="72" y="0" width="65" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="423d0093-be9c-4daa-b20e-4d3792317c80"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COD. GENERICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="137" y="0" width="139" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ea5ae424-f362-4625-9f2a-385e52837dd3"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0b71bfdf-4615-4d49-841a-f181448fb859"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREC. COMPRAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="368" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8607dc94-d9a0-40fc-9349-b2994af6ae39"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PREC. VENTAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="436" y="0" width="51" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="934bb83e-a3d0-4009-a6c4-43f0618a186a"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="487" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ecf3f6bc-5a21-4153-bd59-5b5a819e302f"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPUESTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="72" height="20" forecolor="#666666" backcolor="#E6E6E6" uuid="fd2911c5-5e5b-4151-9f0b-8d9eab08ff6c"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[id_articulo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="fdae2505-9646-446e-8c61-56bfca5d4c38"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="83" y="0" width="54" height="20" uuid="09ab0383-d825-4332-8317-ebdd580e56ea"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigenerico}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="180" y="0" width="111" height="20" uuid="4e3b1b99-403d-4875-94f4-244dad737eef"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{art_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="291" y="0" width="77" height="20" uuid="03c9d807-5a55-42e1-9079-bf75c5b9b634"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preccompras}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="368" y="0" width="86" height="20" uuid="b51a5a83-ad17-400d-80aa-3e1ab3f1d48a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precventas}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="454" y="0" width="61" height="20" uuid="68ebcc98-1f70-48e6-961c-2bf90ebeb21b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_marca}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="515" y="0" width="40" height="20" uuid="03d1b80e-c1bc-4d9a-a85c-70666ab8e532"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_impuesto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="bdd6ccc5-eb56-4c26-98a1-cb77dd8b480b"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="4207ff9e-8667-46ad-8224-fa3679d6a4fa"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="2750bf3a-35f2-4d03-ac75-8dc4456a4f54"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

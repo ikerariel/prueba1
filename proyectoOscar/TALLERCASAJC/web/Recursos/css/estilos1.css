@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+body {
+  background-color: #F5F5F5;   
+}
+
+h1 { color: red; 
+     font-family: Arial;
+     font-size: large;
+}
+
+h4 { color: #008000; 
+     font-family: Arial;
+     font-size: large;
+}
+
+label{
+    background: #ff6600;
+     
+    }
+
+input { background: #4F6AD7;
+        color: red; 
+        font-family: Arial;  
+        size: 150px  
+}
+
+#textos{
+    background: #4F6AD7;
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 100px;
+}
+
+.textoGenerico{
+    background: #e5e5e5;
+    color: aqua;
+    font-family: sans-serif;
+    font-size: 100px;
+}
+
+
+.destacado { 
+    color: red;
+}
+
+#cabecera { 
+    height: 60px; 
+    background-image:url( descarga1.jpg);
+}
+
+#centro {
+    border: black solid 2px;
+  margin-top: .5em;
+  margin-bottom: .5em;
+  margin-left: 1em;
+  margin-right: .5em;
+}

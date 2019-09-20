@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="13ad1813-bb4f-45f2-9a1f-7b4bca9ff37b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cod" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT v.id_venta,a.apcica_apermonto, c.razonsocial,  v.nrofactura, v.fecha::date, e.est_descripcion, sum(d.cantidad*d.precio) as subtotal, (select sum(d.cantidad*d.precio) 
+as totalconanulados from detventas d inner join ventas v on d.id_venta=v.id_venta where v.id_apcica =$P{cod}),(select sum(d.cantidad*d.precio) 
+as totalfacturados from detventas d inner join ventas v on d.id_venta=v.id_venta where v.id_apcica =$P{cod} and v.id_estado=1)  
+FROM public.ventas v
+inner join aperturacierrecajas a on v.id_apcica = a.id_apcica
+ INNER JOIN clientes c on v.id_cliente = c.id_cliente
+inner join detventas d on v.id_venta = d.id_venta
+INNER JOIN estados e on v.id_estado= e.id_estado
+where v.id_apcica =$P{cod} group by v.id_venta, v.nrofactura, v.fecha, v.idtipopag, v.id_timbrado, v.id_cliente, 
+v.id_deposito, v.id_pedidoven, v.id_estado, v.id_usuario, v.idvendedor,c.razonsocial,
+v.id_apcica,a.apcica_apermonto, e.est_descripcion]]>
+	</queryString>
+	<field name="id_venta" class="java.lang.Integer"/>
+	<field name="apcica_apermonto" class="java.lang.Integer"/>
+	<field name="razonsocial" class="java.lang.String"/>
+	<field name="nrofactura" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="est_descripcion" class="java.lang.String"/>
+	<field name="subtotal" class="java.lang.Long"/>
+	<field name="totalconanulados" class="java.lang.Long"/>
+	<field name="totalfacturados" class="java.lang.Long"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="e46a7d91-d913-49a7-84cb-33a42c7d385d"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="5f55fd26-12aa-4a19-832b-62821e9fdfb8"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Facturados]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="61e13944-c26e-4525-a006-3219e4322a22"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="92" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="716f90c2-a9ef-46b6-b5b3-0ece12e25d0c"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="171" y="0" width="92" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="cc8f4566-a881-42ef-9eb0-6c4909747442"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="273" y="0" width="92" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="709692a3-860a-42ec-ba6f-7b07610454c4"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="467" y="0" width="92" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="d68cbf63-b074-4958-9f85-133e417e5283"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="352" y="0" width="92" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="87bc2432-9b3c-4601-a06c-591c0f6c6d36"/>
+				<textElement textAlignment="Justified">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="605f5c33-5161-45ae-9d8e-6f75b3264fad"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="174" height="20" uuid="f41702f9-37c5-42c8-8e50-7fb020d6b8f8"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{razonsocial}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="171" y="0" width="92" height="20" uuid="42e906e8-7e35-43c7-9630-cebb05499999"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nrofactura}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="MM/dd/yyyy">
+				<reportElement x="273" y="0" width="92" height="20" uuid="0a567550-6d7a-4330-9f03-74e1c95810b1"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="#,##0">
+				<reportElement x="467" y="0" width="92" height="20" uuid="1ac81cf5-c9b4-4bcd-8db9-141aea50542e"/>
+				<textElement>
+					<font size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="0" width="100" height="20" uuid="f4cd2d81-09b6-4417-8f8c-893b36a09ee0"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{est_descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="56">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="43" width="515" height="13" backcolor="#E6E6E6" uuid="9fc9b03d-94b9-4d63-b2d1-3576802379b8"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="43" width="40" height="13" backcolor="#E6E6E6" uuid="0f04897b-97d5-4aff-b03d-959eff65a358"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="43" width="100" height="13" uuid="6a19d8bf-effc-471e-ba47-b19935b7d0e0"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="274" y="0" width="178" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="c3b3bca9-cc03-4d4b-aaa0-9fb4e6401bb2"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto Total Anulados :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="20" width="178" height="20" forecolor="#006699" backcolor="#FFFFFF" uuid="d9a0acf4-8e7e-4180-8df9-d482aaf17698"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Monto Total Facturado :]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="457" y="6" width="100" height="20" uuid="e43404d2-f781-4042-adff-c364e3bac490"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalconanulados}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="457" y="23" width="100" height="20" uuid="b6a35569-6292-478c-b44a-69860e18e792"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{totalfacturados}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

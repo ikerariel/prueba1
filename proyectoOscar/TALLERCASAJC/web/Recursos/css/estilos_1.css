@@ -1,0 +1,181 @@
+* {
+    padding:0;
+    margin:0;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+
+section {
+    padding:0px;
+    margin:25px;
+
+}
+
+.menu_bar {
+    display:none;
+}
+
+header {
+    width: 80%;
+}
+
+header nav {
+    background:#1b6d85;
+    z-index:1000;
+    max-width: 1800px;
+    /*mide el tamaño del menu horizontalmente*/
+    /*width: 150%;*/
+    margin:20px auto;
+}
+
+header nav ul {
+    list-style:none;
+}
+
+header nav ul li {
+    display:inline-block;
+    /*La razon por la que no usamos floar en vez de inline-block es
+    porque no vamos a poder usar overflows en el header nav ul*/
+    position: relative;
+}
+
+header nav ul li:hover .children {
+    display: block;
+}
+
+/*Submenu*/
+header nav ul li .children {
+    background:#1b6d85;
+    position: absolute;
+    display: none;
+    width: 150%;
+    z-index: 1000;
+}
+
+header nav ul li .children li {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,.5);
+    /*Usamos overflow hidden porque aqui si vamos a necesitar usar float*/
+}
+
+header nav ul li .children li a {
+    display: block;
+}
+
+header nav ul .children li a span {
+    float: right;
+    position: relative;
+    top:3px;
+    margin-right: 0px;
+    margin-left:10px;
+}
+
+header nav ul li a {
+    color:#ffffff;
+    text-decoration: none;
+    display: inline-block;
+    padding:20px;
+}
+
+header nav ul li:hover {
+    background:#ddd;
+}
+
+header nav ul li span {
+    margin-right:10px;
+}
+
+header nav ul li .caret {
+    position: relative;
+    top: 3px;
+    margin-left: 10px;
+    margin-right: 0;
+}
+body section {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1300px;
+    background: #985f0d;
+    opacity: 15px;
+    border-radius: 0%;
+}
+#datos{
+     background: #919292;
+}
+body section h2 {
+    text-align: center;
+}
+
+
+
+
+
+
+
+@media screen and (max-width:800px) {
+    body {
+        padding-top:80px;
+    }
+    .menu_bar {
+        width: 10%;
+        background:#bce8f1;
+        display: block;
+        position: fixed;
+        top:0;
+    }
+
+    .menu_bar .bt-menu {
+        display: block;
+        padding: 20px;
+        color:#fff;
+        overflow: hidden;
+        font-size:25px;
+        font-weight:bold;
+        text-decoration: none;
+    }
+
+    .menu_bar span {
+        float: right;
+        font-size: 40px;
+    }
+
+    header nav {
+        width: 100%;
+        height: calc(100% - 80px);
+        right:100%; 
+        /*Con esto ocultamos el menu hacia la derecha, lo agregamos hasta el final*/
+        margin: 0;
+        position:fixed;
+        overflow:scroll;
+    }
+
+    header nav ul li {
+        display: block;
+        border-bottom:1px solid rgba(255,255,255,.5);
+    }
+
+    header nav ul li a {
+        display: block;
+    }
+
+    header nav ul li:hover .children{
+        display: none;
+    }
+
+    header nav ul li .children {
+        width: 100%;
+        position: relative;
+        /*display: block;*/
+    }
+
+    header nav ul li .children li a{
+        margin-left:20px;
+    }
+
+    header nav ul li .caret {
+        float: right;
+    }
+}
