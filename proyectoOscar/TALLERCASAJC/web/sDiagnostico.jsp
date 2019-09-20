@@ -161,11 +161,11 @@
                                     </div>
                                     <label class="col-md-1 control-label">Cliente</label>  
                                     <div class="col-md-2">
-                                        <input  id="clinteRecepcion" type="text" style="font-weight: bold;font-size: 12pt"
+                                        <input  id="clinteDiagnostico" type="text" style="font-weight: bold;font-size: 12pt"
                                                class="form-control input-sm ">
                                     </div>
                                     <div class="col-md-4">
-                                        <input disabled id="clinteNombreRecepcion" type="text" style="text-transform: uppercase; font-weight: bold;font-size: 12pt"
+                                        <input disabled id="clinteNombreDiagnostico" type="text" style="text-transform: uppercase; font-weight: bold;font-size: 12pt"
                                                class="form-control input-sm ">
                                         <input disabled id="idclienteRecepcion" type="text" style="display: none"
                                                class="form-control input-sm ">
@@ -177,7 +177,7 @@
 
                                     <label class="col-md-1 control-label">Obs.</label>  
                                     <div class="col-md-11">
-                                        <input id="obsRecepcion" maxlength="79" style="font-weight: bold; font-size: 12pt" 
+                                        <input id="obsDiagnostico" maxlength="79" style="font-weight: bold; font-size: 12pt" 
                                                n type="text" placeholder="Ingese una observación si lo desea.." class="form-control input-sm ">
                                     </div>
                                          
